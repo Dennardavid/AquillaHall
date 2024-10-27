@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input {
+  @apply ring-1 ring-cyan p-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-cyan;
+}
+button {
+  @apply border-none bg-cyan text-white font-medium text-sm lg:text-base hover:bg-Cyanhover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-VeryDarkBlue;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
