@@ -1,3 +1,4 @@
+import Grading from "@/components/grading";
 export default function Results() {
   return (
     <div className="">
@@ -8,31 +9,21 @@ export default function Results() {
               colSpan={14}
               className="py-2 border border-slate-500 text-gray-800 text-center text-lg font-bold"
             >
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <img src="/logo.png" alt="Aquilla logo" />
-                <h1 className="font-bold text-5xl flex flex-col text-left gap-2 text-blue-950">
-                  Aquilla <span className="text-[28px]">Hall College</span>
-                </h1>
+              <div className="flex items-center justify-center">
+                <img src="/Aquila.png" alt="aquila" width={700}/>
               </div>
-              <div className="font-medium text-xs text-white flex justify-center gap-3 mb-2">
-                <span className="bg-yellow-600 py-1 px-4 rounded-full">
-                  EARLY YEAR
-                </span>
-                <span className="bg-purple-700 py-1 px-4 rounded-full">
-                  PRIMARY
-                </span>
-                <span className="bg-green-700 py-1 px-4 rounded-full">
-                  SECONDARY
-                </span>
-              </div>
-              <p className="font-normal text-xs text-blue-500">
+              <p className="font-normal text-blue-500">
                 Incarnate Road, Off Location Road, Umuebele 2, Etche LGA, Rivers
                 state
               </p>
             </th>
           </tr>
           <tr>
-            <th colSpan={14} className="py-2 text-center text-lg font-medium">
+            <th
+              colSpan={14}
+              className="py-2 text-center text-lg font-extrabold
+            "
+            >
               SECONDARY CONTINUOUS ASSESSMENT REPORT SHEET
             </th>
           </tr>
@@ -398,7 +389,9 @@ export default function Results() {
             <td>5</td>
           </tr>
           <tr>
-            <td colSpan={3} className="font-extrabold">TOTAL</td>
+            <td colSpan={3} className="font-extrabold">
+              TOTAL
+            </td>
             <td>264</td>
             <td>264</td>
             <td>722</td>
@@ -411,33 +404,47 @@ export default function Results() {
             <td>5</td>
           </tr>
           <tr>
-            
             <td colSpan={11}></td>
             <td className="text-left pl-1">Games</td>
             <td>5</td>
           </tr>
           <tr>
-            <td colSpan={4} className="text-left pl-1 font-extrabold">THIRD TERM AVERAGE</td>
+            <td colSpan={4} className="text-left pl-1 font-extrabold">
+              THIRD TERM AVERAGE
+            </td>
             <td colSpan={2}>89.3</td>
-            <td colSpan={6} className="font-extrabold">OVERALL GRADING</td>
+            <td colSpan={6} className="font-extrabold">
+              OVERALL GRADING
+            </td>
             <td colSpan={1}>A</td>
           </tr>
           <tr>
-            <td colSpan={4} className="text-left pl-1 font-extrabold">Form Master's Remark :</td>
+            <td colSpan={4} className="text-left pl-1 font-extrabold">
+              Form Master's Remark :
+            </td>
             <td colSpan={4}>An excellent result . You are a star.</td>
-            <td colSpan={4} className="font-extrabold">CUM AVERAGE</td>
+            <td colSpan={4} className="font-extrabold">
+              CUM AVERAGE
+            </td>
             <td colSpan={1}>90.3</td>
           </tr>
           <tr>
-            <td colSpan={4} className="text-left pl-1 font-extrabold">Principal's Remark :</td>
+            <td colSpan={4} className="text-left pl-1 font-extrabold">
+              Principal's Remark :
+            </td>
             <td colSpan={9}>Promoted to the next class</td>
           </tr>
           <tr>
-            <td colSpan={4} className="text-left pl-1 font-extrabold">Signature and School Stamp</td>
+            <td colSpan={4} className="text-left pl-1 font-extrabold">
+              Signature and School Stamp
+            </td>
             <td colSpan={9} className="text-left pl-1"></td>
           </tr>
         </tbody>
       </table>
+      <div>
+        <Grading />
+      </div>
     </div>
   );
 }
