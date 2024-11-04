@@ -22,7 +22,7 @@ export default async function DashboardLayout({
   return (
     <section className="flex min-h-[100dvh] h-[100dvh] overflow-hidden">
       <Navigation />
-      <main className="flex-1 p-6">{children}</main>
+      <main className="flex-1 p-6 overflow-auto">{children}</main>
     </section>
   );
 }
