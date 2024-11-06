@@ -35,11 +35,12 @@ export default function Navigation() {
   return (
     <nav className="bg-VeryDarkBlue w-[20%] h-dvh rounded-r-xl flex flex-col justify-between">
       <div className="p-4">
-        <h1 className="text-white text-2xl mt-4 mb-8 font-extrabold">
-          Aquilla Hall
-        </h1>
+        <div className="flex items-center gap-2">
+          <img src="/logo.png" alt="Aquila logo" width={70} />
+          <h1 className="text-white text-2xl font-extrabold">Aquila Hall</h1>
+        </div>
 
-        <ul className="space-y-4">
+        <ul className="space-y-4 mt-10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href; // Compare the pathname with the link href
 
@@ -77,7 +78,6 @@ export default function Navigation() {
           Logout
         </button>
       </form>
-     
     </nav>
   );
 }

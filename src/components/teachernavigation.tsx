@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 import { PiExam } from "react-icons/pi";
-import { GrScorecard } from "react-icons/gr"
-import { usePathname } from "next/navigation";;
-
+import { GrScorecard } from "react-icons/gr";
+import { usePathname } from "next/navigation";
 
 export default function Teachernavigation() {
   const navLinks = [
@@ -25,15 +24,16 @@ export default function Teachernavigation() {
       Icon: <PiExam color="white" fontSize={25} />,
     },
   ];
-  const pathname = usePathname(); 
+  const pathname = usePathname();
   return (
     <nav className="bg-VeryDarkBlue w-[20%] h-dvh rounded-r-xl flex flex-col justify-between">
       <div className="p-4">
-        <h1 className="text-white text-2xl mt-4 mb-8 font-extrabold">
-          Aquilla Hall
-        </h1>
+        <div className="flex items-center gap-2">
+          <img src="/logo.png" alt="Aquila logo" width={70} />
+          <h1 className="text-white text-2xl font-extrabold">Aquila Hall</h1>
+        </div>
 
-        <ul className="space-y-4">
+        <ul className="space-y-4 mt-10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href; // Compare the pathname with the link href
 

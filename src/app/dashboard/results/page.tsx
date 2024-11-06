@@ -442,7 +442,10 @@ export default function Results() {
           </tr>
         </tbody>
       </table>
-      <div>
+      
+        <img src="/stamp.png" alt="school stamp" width={200} className="relative bottom-16 left-[45%] "/>
+      
+      <div className="-mt-32">
         <Grading />
       </div>
     </div>
