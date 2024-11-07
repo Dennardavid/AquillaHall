@@ -47,13 +47,13 @@ function StudentSignUp() {
           </h1>
           <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
             <label htmlFor="name" className="text-VeryDarkBlue">
-              Registeration number:
+              Name
             </label>
             <input
               type="text"
-              name="reg_number"
-              id="reg_number"
-              placeholder="Registeration number"
+              name="name"
+              id="name"
+              placeholder="First and Last Name"
               required
             />
             <label htmlFor="name" className="text-VeryDarkBlue">

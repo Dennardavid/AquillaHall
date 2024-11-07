@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
   const supabase = createClient();
   const body = await request.json();
 
-  const { reg_number, English, Mathematics, Physics, Chemistry, Biology } = body;
+  const { name, English, Mathematics, Physics, Chemistry, Biology } = body;
 
   const {
     data: { user },
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     .from("STUDENTS-RESULT")
     .insert([
       {
-        reg_number,
+        name,
         English,
         Mathematics,
         Physics,

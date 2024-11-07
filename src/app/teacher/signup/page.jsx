@@ -46,7 +46,7 @@ function TeacherSignUp() {
             Sign Up for an account
           </h1>
           <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-            <label htmlFor="email" className="text-VeryDarkBlue">
+            <label htmlFor="name" className="text-VeryDarkBlue">
               Teachers Name
             </label>
             <input
@@ -56,6 +56,20 @@ function TeacherSignUp() {
               placeholder="Name"
               required
             />
+            <label htmlFor="class">Class taught</label>
+            <select name="class" id="class" required>
+              <option value="Nursery1">Nursery 1</option>
+              <option value="Nursery2">Nursery 2</option>
+              <option value="Nursery3">Nursery 3</option>
+              <option value="Primary1">Primary 1</option>
+              <option value="Primary2">Primary 2</option>
+              <option value="Primary3">Primary 3</option>
+              <option value="Primary4">Primary 4</option>
+              <option value="Primary5">Primary 5</option>
+              <option value="JSS1">JSS 1</option>
+              <option value="JSS2">JSS 2</option>
+              <option value="JSS3">JSS 3</option>
+            </select>
             <label htmlFor="email" className="text-VeryDarkBlue">
               Email:
             </label>
