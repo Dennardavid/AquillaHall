@@ -56,7 +56,7 @@ function StudentSignUp() {
               placeholder="First and Last Name"
               required
             />
-            <label htmlFor="name" className="text-VeryDarkBlue">
+            <label htmlFor="email" className="text-VeryDarkBlue">
               Email
             </label>
             <input

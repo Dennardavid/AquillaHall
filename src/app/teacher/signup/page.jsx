@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { signup } from "../../actions";
+import { signup, signupteacher } from "../../actions";
 import Aside from "../../../components/aside";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { HashLoader } from "react-spinners";
@@ -18,7 +18,7 @@ function TeacherSignUp() {
     const formData = new FormData(event.currentTarget);
 
     // Calling the server action directly
-    const result = await signup(formData);
+    const result = await signupteacher(formData);
 
     if (result?.error) {
       setLoading(false);
