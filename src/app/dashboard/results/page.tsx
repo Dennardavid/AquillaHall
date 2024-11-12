@@ -6,11 +6,11 @@ export default function Results() {
         <thead>
           <tr>
             <th
-              colSpan={14}
+              colSpan={13}
               className="py-2 border border-slate-500 text-gray-800 text-center text-lg font-bold"
             >
               <div className="flex items-center justify-center">
-                <img src="/Aquila.png" alt="aquila" width={700}/>
+                <img src="/Aquila.png" alt="aquila" width={700} />
               </div>
               <p className="font-normal text-blue-500">
                 Incarnate Road, Off Location Road, Umuebele 2, Etche LGA, Rivers
@@ -20,7 +20,7 @@ export default function Results() {
           </tr>
           <tr>
             <th
-              colSpan={14}
+              colSpan={13}
               className="py-2 text-center text-lg font-extrabold
             "
             >
@@ -29,7 +29,7 @@ export default function Results() {
           </tr>
 
           <tr>
-            <th colSpan={7} className=" border border-slate-500">
+            <th colSpan={6} className=" border border-slate-500">
               <div className="flex items-center">
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Name :
@@ -72,7 +72,7 @@ export default function Results() {
                 <span className="flex-1 font-normal px-2">Third</span>
               </div>
             </th>
-            <th colSpan={4} className=" border border-slate-500">
+            <th colSpan={3} className=" border border-slate-500">
               <div className="flex items-center">
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Year :
@@ -83,7 +83,7 @@ export default function Results() {
           </tr>
 
           <tr>
-            <th colSpan={7} className=" border border-slate-500">
+            <th colSpan={6} className=" border border-slate-500">
               <div className="flex items-center">
                 <span className="py-2 w-24 font-semibold border-r border-slate-500 block">
                   Closing Date :
@@ -105,8 +105,8 @@ export default function Results() {
         </thead>
         <tbody>
           <tr className="text-center">
-            <td colSpan={7}>COGNITVE DOMAIN REPORT</td>
-            <td colSpan={7}>AFFECTIVE & PSYCHOMOTOR DOMAIN REPORT</td>
+            <td colSpan={9}>COGNITVE DOMAIN REPORT</td>
+            <td colSpan={4}>AFFECTIVE & PSYCHOMOTOR DOMAIN REPORT</td>
           </tr>
           <tr>
             <td colSpan={1}>NO</td>
@@ -133,25 +133,7 @@ export default function Results() {
               colSpan={1}
               className="[writing-mode:vertical-lr] rotate-180 py-1"
             >
-              3RD TERM TOTAL
-            </td>
-            <td
-              colSpan={1}
-              className="[writing-mode:vertical-lr] rotate-180 py-1"
-            >
-              2ND TERM TOTAL
-            </td>
-            <td
-              colSpan={1}
-              className="[writing-mode:vertical-lr] rotate-180 py-1"
-            >
-              1ST TERM TOTAL
-            </td>
-            <td
-              colSpan={1}
-              className="[writing-mode:vertical-lr] rotate-180 py-1"
-            >
-              CUM AVERAGE
+              TOTAL (100%)
             </td>
             <td
               colSpan={1}
@@ -159,7 +141,13 @@ export default function Results() {
             >
               GRADE
             </td>
-            <td colSpan={1}>BEHAVIOUR & ACTIVITIES</td>
+            <td
+              colSpan={1}
+              className="[writing-mode:vertical-lr] rotate-180 py-1"
+            >
+              POSITION
+            </td>
+            <td colSpan={3}>BEHAVIOUR & ACTIVITIES</td>
             <td colSpan={1} className="border-r-0">
               GRADING
             </td>
@@ -172,12 +160,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Communication</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Communication</td>
             <td>5</td>
           </tr>
           <tr>
@@ -188,12 +174,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Participation in activities</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Participation in activities</td>
             <td>5</td>
           </tr>
           <tr>
@@ -204,12 +188,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Leadership traits roles</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Leadership traits roles</td>
             <td>5</td>
           </tr>
           <tr>
@@ -221,11 +203,9 @@ export default function Results() {
             <td>19</td>
             <td>53</td>
             <td>88</td>
-            <td>84</td>
-            <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Honesty</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Honesty</td>
             <td>5</td>
           </tr>
           <tr>
@@ -236,12 +216,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Punctuality</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Punctuality</td>
             <td>5</td>
           </tr>
           <tr>
@@ -252,12 +230,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Obedience</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Obedience</td>
             <td>5</td>
           </tr>
           <tr>
@@ -268,12 +244,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Attitude to work</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Attitude to work</td>
             <td>5</td>
           </tr>
           <tr>
@@ -284,12 +258,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Self control</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Self control</td>
             <td>5</td>
           </tr>
           <tr>
@@ -300,12 +272,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Initiative</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Initiative</td>
             <td>5</td>
           </tr>
           <tr>
@@ -316,12 +286,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Neatness</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Neatness</td>
             <td>5</td>
           </tr>
           <tr>
@@ -332,12 +300,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Politeness</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Politeness</td>
             <td>5</td>
           </tr>
           <tr>
@@ -348,12 +314,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Relationship with teachers</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Relationship with teachers</td>
             <td>5</td>
           </tr>
           <tr>
@@ -364,12 +328,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Relationship with pupils</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Relationship with pupils</td>
             <td>5</td>
           </tr>
           <tr>
@@ -380,12 +342,10 @@ export default function Results() {
             <td>18</td>
             <td>19</td>
             <td>53</td>
-            <td>88</td>
-            <td>84</td>
             <td>95</td>
-            <td>89</td>
             <td>A</td>
-            <td className="text-left pl-1">Creativity</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>Creativity</td>
             <td>5</td>
           </tr>
           <tr>
@@ -396,16 +356,14 @@ export default function Results() {
             <td>264</td>
             <td>722</td>
             <td>1250</td>
-            <td>1250</td>
-            <td>1291</td>
-            <td>1264</td>
             <td></td>
-            <td className="text-left pl-1">Sports</td>
+            <td></td>
+            <td className="text-left pl-1" colSpan={3}>Sports</td>
             <td>5</td>
           </tr>
           <tr>
-            <td colSpan={11}></td>
-            <td className="text-left pl-1">Games</td>
+            <td colSpan={9}></td>
+            <td className="text-left pl-1" colSpan={3}>Games</td>
             <td>5</td>
           </tr>
           <tr>
@@ -442,9 +400,14 @@ export default function Results() {
           </tr>
         </tbody>
       </table>
-      
-        <img src="/stamp.png" alt="school stamp" width={200} className="relative bottom-16 left-[45%] "/>
-      
+
+      <img
+        src="/stamp.png"
+        alt="school stamp"
+        width={200}
+        className="relative bottom-16 left-[45%] "
+      />
+
       <div className="-mt-32">
         <Grading />
       </div>

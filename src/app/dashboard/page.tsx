@@ -57,31 +57,7 @@ export default async function StudentDashboard() {
             </a>
           </div>
         </div>
-
-        {/* Recent Results */}
-        <div className="bg-white shadow-lg rounded-lg p-6 lg:col-span-3">
-          <h2 className="text-xl font-bold mb-4">Recent Results</h2>
-          <table className="min-w-full bg-white">
-            <thead>
-              <tr>
-                <th className="py-2 px-4 bg-gray-200 text-gray-600 text-left text-sm">
-                  Course
-                </th>
-                <th className="py-2 px-4 bg-gray-200 text-gray-600 text-left text-sm">
-                  Grade
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {student.recentResults.map((result, index) => (
-                <tr key={index} className="border-b">
-                  <td className="py-3 px-4">{result.course}</td>
-                  <td className="py-3 px-4">{result.grade}%</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        
       </div>
     </div>
   );
