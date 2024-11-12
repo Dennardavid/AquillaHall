@@ -66,7 +66,7 @@ const subjects: Subject[] = [
   },
   {
     name: "Rhymes",
-    fields: ["rhymes_ca1", "rhymes_life_ca2", "rhymes_exam"],
+    fields: ["rhymes_ca1", "rhymes_ca2", "rhymes_exam"],
   },
   {
     name: "Verbal Reasoning",
@@ -123,6 +123,19 @@ export default function UploadResults() {
     setGrades((prev) => ({ ...prev, [field]: numValue }));
   };
 
+  const normalizeSubjectName = (name: string): string => {
+    const nameMap: { [key: string]: string } = {
+      "Physical Health & Social Skills": "physical_health_social",
+      "Practical Life/Sensorial": "practical_life",
+      "Handwriting Skills": "handwriting",
+      "Literature in English": "literature",
+    };
+
+    return (
+      nameMap[name] || name.toLowerCase().replace(/ &/g, "").replace(/ /g, "_")
+    );
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -138,10 +151,7 @@ export default function UploadResults() {
       // Calculate totals and grades for each subject
       const subjectResults = subjects.reduce((acc, subject) => {
         const total = calculateSubjectTotal(subject.fields);
-        const subjectName = subject.name
-          .toLowerCase()
-          .replace(/ &/g, "")
-          .replace(/ /g, "_");
+        const subjectName = normalizeSubjectName(subject.name);
         return {
           ...acc,
           [`${subjectName}_total`]: total,
@@ -151,8 +161,8 @@ export default function UploadResults() {
 
       const requestBody = {
         student_name: studentName.trim(),
-        ...grades, // Individual subject scores
-        ...subjectResults, // Subject totals and grades
+        ...grades,
+        ...subjectResults,
         overall_total_score: calculateOverallTotal(),
       };
 
@@ -170,7 +180,6 @@ export default function UploadResults() {
       }
 
       setSubmitMessage("Results uploaded successfully!");
-      // Reset form
       setGrades({});
       setStudentName("");
     } catch (error) {
