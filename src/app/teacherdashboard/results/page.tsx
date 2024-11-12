@@ -109,8 +109,7 @@ export default function UploadResults() {
     }, 0);
   };
 
-  const calculateGrade = (total: number) => {
-    if (total >= 90) return "A+";
+  const calculateSubjectGrade = (total: number) => {
     if (total >= 80) return "A";
     if (total >= 70) return "B";
     if (total >= 60) return "C";
@@ -136,27 +135,25 @@ export default function UploadResults() {
     }
 
     try {
-      // Calculate totals for each subject
-      const subjectTotals = subjects.reduce((acc, subject) => {
+      // Calculate totals and grades for each subject
+      const subjectResults = subjects.reduce((acc, subject) => {
         const total = calculateSubjectTotal(subject.fields);
+        const subjectName = subject.name
+          .toLowerCase()
+          .replace(/ &/g, "")
+          .replace(/ /g, "_");
         return {
           ...acc,
-          [`${subject.name
-            .toLowerCase()
-            .replace(/ &/g, "")
-            .replace(/ /g, "_")}_total`]: total,
+          [`${subjectName}_total`]: total,
+          [`${subjectName}_grade`]: calculateSubjectGrade(total),
         };
       }, {});
-
-      const overallTotal = calculateOverallTotal();
-      const grade = calculateGrade(overallTotal);
 
       const requestBody = {
         student_name: studentName.trim(),
         ...grades, // Individual subject scores
-        ...subjectTotals, // Subject totals
-        overall_total_score: overallTotal,
-        grade,
+        ...subjectResults, // Subject totals and grades
+        overall_total_score: calculateOverallTotal(),
       };
 
       const response = await fetch("/auth/upload", {
@@ -244,9 +241,17 @@ export default function UploadResults() {
                   </div>
                 ))}
                 <div className="md:col-span-3">
-                  <p className="text-sm font-medium text-gray-700">
-                    Total: {calculateSubjectTotal(subject.fields)}
-                  </p>
+                  <div className="flex justify-between items-center">
+                    <p className="text-sm font-medium text-gray-700">
+                      Total: {calculateSubjectTotal(subject.fields)}
+                    </p>
+                    <p className="text-sm font-medium text-gray-700">
+                      Grade:{" "}
+                      {calculateSubjectGrade(
+                        calculateSubjectTotal(subject.fields)
+                      )}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -255,9 +260,6 @@ export default function UploadResults() {
           <div className="mt-6 border-t pt-4">
             <p className="text-lg font-medium">
               Overall Total: {calculateOverallTotal()}
-            </p>
-            <p className="text-lg font-medium">
-              Grade: {calculateGrade(calculateOverallTotal())}
             </p>
           </div>
 
