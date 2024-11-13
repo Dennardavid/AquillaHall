@@ -14,9 +14,9 @@ export async function GET() {
   }
 
   const { data, error } = await supabase
-    .from("STUDENTS-RESULT")
+    .from("nursery_school")
     .select("*")
-    .eq("name", user?.user_metadata?.name)
+    .eq("student_name", user?.user_metadata?.user_name)
     .order("created_at", { ascending: false });
 
   console.log(data);
