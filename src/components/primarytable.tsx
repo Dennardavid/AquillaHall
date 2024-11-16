@@ -1,5 +1,6 @@
 "use client";
 import { StudentData } from "@/Types/StudentData";
+import Grading from "./grading";
 import { useState, useEffect } from "react";
 
 export default function NuseryTable() {
@@ -10,7 +11,7 @@ export default function NuseryTable() {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const response = await fetch("/auth/getnurseryresult");
+        const response = await fetch("/auth/getprimaryresult");
         if (!response.ok) {
           throw new Error("Failed to fetch student data");
         }
@@ -124,7 +125,7 @@ export default function NuseryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Term :
                 </span>
-                <span className="flex-1 font-normal px-2">First</span>
+                <span className="flex-1 font-normal px-2">Third</span>
               </div>
             </th>
             <th colSpan={3} className=" border border-slate-500">
@@ -140,7 +141,7 @@ export default function NuseryTable() {
           <tr>
             <th colSpan={6} className=" border border-slate-500">
               <div className="flex items-center">
-                <span className="py-5 w-24 font-semibold border-r border-slate-500 block">
+                <span className="py-2 w-24 font-semibold border-r border-slate-500 block">
                   Closing Date :
                 </span>
                 <span className="flex-1 font-normal px-2">26th July, 2024</span>
@@ -149,7 +150,7 @@ export default function NuseryTable() {
             <th colSpan={7} className="border border-slate-500">
               <div className="flex items-center">
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
-                  Second term begins :
+                  Third term begins :
                 </span>
                 <span className="flex-1 font-normal px-2">
                   9th September, 2024
@@ -159,6 +160,10 @@ export default function NuseryTable() {
           </tr>
         </thead>
         <tbody>
+          <tr className="text-center">
+            <td colSpan={9}>COGNITVE DOMAIN REPORT</td>
+            <td colSpan={4}>AFFECTIVE & PSYCHOMOTOR DOMAIN REPORT</td>
+          </tr>
           <tr>
             <td colSpan={1}>NO</td>
             <td colSpan={2}>SUBJECTS</td>
@@ -192,6 +197,12 @@ export default function NuseryTable() {
             >
               GRADE
             </td>
+            <td
+              colSpan={1}
+              className="[writing-mode:vertical-lr] rotate-180 py-1"
+            >
+              POSITION
+            </td>
             <td colSpan={3}>PSYCHOMOTOR & AFFECTIVE DOMAN</td>
             <td colSpan={1} className="border-r-0">
               GRADING
@@ -207,9 +218,11 @@ export default function NuseryTable() {
             <td>{studentData?.numeracy_exam}</td>
             <td>{studentData.numeracy_total}</td>
             <td>{studentData.numeracy_grade}</td>
-            <td className="text-center pl-1" colSpan={5}>
+            <td>89</td>
+            <td className="text-center pl-1" colSpan={4}>
               ATTITUDE TOWARDS WORK
             </td>
+            <td>5</td>
           </tr>
           <tr>
             <td>2</td>
@@ -221,10 +234,11 @@ export default function NuseryTable() {
             <td>{studentData.literacy_exam}</td>
             <td>{studentData.literacy_total}</td>
             <td>{studentData.literacy_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Follow simple directions
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>3</td>
@@ -236,10 +250,11 @@ export default function NuseryTable() {
             <td>{studentData.science_exam}</td>
             <td>{studentData.science_total}</td>
             <td>{studentData.science_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Developed an increased concentration
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>4</td>
@@ -251,10 +266,11 @@ export default function NuseryTable() {
             <td>{studentData.quantitative_reasoning_exam}</td>
             <td>{studentData.quantitative_reasoning_total}</td>
             <td>{studentData.quantitative_reasoning_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Able to follow routine
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>5</td>
@@ -266,9 +282,11 @@ export default function NuseryTable() {
             <td>{studentData.physical_health_social_exam}</td>
             <td>{studentData.physical_health_social_total}</td>
             <td>{studentData.physical_health_social_grade}</td>
-            <td className="text-center pl-1" colSpan={5}>
+            <td>89</td>
+            <td className="text-center pl-1" colSpan={4}>
               SOCIAL DEVELOPMENT
             </td>
+            <td>5</td>
           </tr>
           <tr>
             <td>6</td>
@@ -280,10 +298,11 @@ export default function NuseryTable() {
             <td>{studentData.jolly_phonics_exam}</td>
             <td>{studentData.jolly_phonics_total}</td>
             <td>{studentData.jolly_phonics_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Social and loved by the teachers and
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>7</td>
@@ -295,10 +314,11 @@ export default function NuseryTable() {
             <td>{studentData.understanding_the_world_exam}</td>
             <td>{studentData.understanding_the_world_total}</td>
             <td>{studentData.understanding_the_world_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Shares materials and toys with others
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>8</td>
@@ -310,10 +330,11 @@ export default function NuseryTable() {
             <td>{studentData.christian_religious_studies_exam}</td>
             <td>{studentData.christian_religious_studies_total}</td>
             <td>{studentData.christian_religious_studies_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Enjoy the company of others
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>9</td>
@@ -325,9 +346,11 @@ export default function NuseryTable() {
             <td>{studentData.art_design_exam}</td>
             <td>{studentData.art_design_total}</td>
             <td>{studentData.art_design_grade}</td>
-            <td className="text-center pl-1" colSpan={5}>
+            <td>89</td>
+            <td className="text-center pl-1" colSpan={4}>
               OTHER ABILITIES
             </td>
+            <td>5</td>
           </tr>
           <tr>
             <td>10</td>
@@ -339,10 +362,11 @@ export default function NuseryTable() {
             <td>{studentData.practical_life_exam}</td>
             <td>{studentData.practical_life_total}</td>
             <td>{studentData.practical_life_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Knows their names
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>11</td>
@@ -354,10 +378,11 @@ export default function NuseryTable() {
             <td>{studentData.rhymes_exam}</td>
             <td>{studentData.rhymes_total}</td>
             <td>{studentData.rhymes_grade}</td>
+            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
               Knows their age
             </td>
-            <td colSpan={2}>5</td>
+            <td>5</td>
           </tr>
           <tr>
             <td>12</td>
@@ -369,16 +394,14 @@ export default function NuseryTable() {
             <td>{studentData.verbal_reasoning_exam}</td>
             <td>{studentData.verbal_reasoning_total}</td>
             <td>{studentData.verbal_reasoning_grade}</td>
-
+            <td>89</td>
             <td
               className="text-left pl-1 border-b border-slate-500"
               colSpan={3}
             >
               knows the name of their school
             </td>
-            <td className="border-b border-slate-500" colSpan={2}>
-              5
-            </td>
+            <td className="border-b border-slate-500">5</td>
           </tr>
           <tr>
             <td>13</td>
@@ -390,6 +413,11 @@ export default function NuseryTable() {
             <td>{studentData.handwriting_exam}</td>
             <td>{studentData.handwriting_total}</td>
             <td>{studentData.handwriting_grade}</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>
+              Relationship with pupils
+            </td>
+            <td>5</td>
           </tr>
           <tr>
             <td>14</td>
@@ -401,19 +429,34 @@ export default function NuseryTable() {
             <td>{studentData.literacy_exam}</td>
             <td>{studentData.literacy_total}</td>
             <td>{studentData.literacy_grade}</td>
+            <td>89</td>
+            <td className="text-left pl-1" colSpan={3}>
+              Creativity
+            </td>
+            <td>5</td>
           </tr>
           <tr>
             <td colSpan={3} className="font-extrabold">
               TOTAL
             </td>
-            <td colSpan={10}>{studentData.overall_total_score}</td>
+            <td colSpan={6}>{studentData.overall_total_score}</td>
+
+            <td className="text-left pl-1" colSpan={3}>
+              Sports
+            </td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td colSpan={9}></td>
+            <td className="text-left pl-1" colSpan={3}></td>
+            <td></td>
           </tr>
           <tr>
             <td colSpan={4} className="text-left pl-1 font-extrabold">
               TERM AVERAGE
             </td>
             <td colSpan={2}>{rounded}</td>
-            <td colSpan={5} className="font-extrabold">
+            <td colSpan={6} className="font-extrabold">
               OVERALL GRADING
             </td>
             <td colSpan={1}>A</td>
@@ -423,6 +466,10 @@ export default function NuseryTable() {
               Caregiver's Remark
             </td>
             <td colSpan={9}>An excellent result . You are a star.</td>
+            <td colSpan={4} className="font-extrabold">
+              CUM AVERAGE
+            </td>
+            <td colSpan={1}>90.3</td>
           </tr>
           <tr>
             <td colSpan={4} className="text-left pl-1 font-extrabold">
@@ -438,54 +485,16 @@ export default function NuseryTable() {
           </tr>
         </tbody>
       </table>
+
       <img
         src="/stamp.png"
         alt="school stamp"
         width={200}
         className="relative bottom-16 left-[45%] "
       />
-      <div className="flex justify-end -mt-28">
-        <table className="border-collapse border border-slate-500">
-          <thead>
-            <tr>
-              <th className="text-center" colSpan={3}>
-                KEY TO GRADING
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="text-center px-2">80 - 100%</td>
-              <td className="px-2">Excellent</td>
-              <td className="px-2">A</td>
-            </tr>
-            <tr>
-              <td className="text-center">70 - 79%</td>
-              <td>V. good</td>
-              <td>B</td>
-            </tr>
-            <tr>
-              <td className="text-center">60 - 69%</td>
-              <td>Good</td>
-              <td>C</td>
-            </tr>
-            <tr>
-              <td className="text-center">50 - 59%</td>
-              <td>Average</td>
-              <td>D</td>
-            </tr>
-            <tr>
-              <td className="text-center">40 - 49%</td>
-              <td className="px-1">Below average</td>
-              <td>E</td>
-            </tr>
-            <tr>
-              <td className="text-center">Below 40%</td>
-              <td className="px-1">Progressing</td>
-              <td>F</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div className="-mt-32">
+        <Grading />
       </div>
     </>
   );

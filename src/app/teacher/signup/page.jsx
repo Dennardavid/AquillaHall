@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { signup, signupteacher } from "../../actions";
+import { signupteacher } from "../../actions";
 import Aside from "../../../components/aside";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { HashLoader } from "react-spinners";

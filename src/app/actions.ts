@@ -61,6 +61,7 @@ export async function signup(formData: FormData) {
     options: {
       data: {
         user_name: formData.get("name") as string,
+        class: formData.get("class") as string,
       },
     },
   };
