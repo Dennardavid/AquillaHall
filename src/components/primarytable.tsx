@@ -3,7 +3,7 @@ import { StudentData } from "@/Types/StudentData";
 import Grading from "./grading";
 import { useState, useEffect } from "react";
 
-export default function NuseryTable() {
+export default function PrimaryTable() {
   const [studentData, setStudentData] = useState<StudentData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ export default function NuseryTable() {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const response = await fetch("/auth/getprimaryresult");
+        const response = await fetch("/auth/getnurseryresult");
         if (!response.ok) {
           throw new Error("Failed to fetch student data");
         }
@@ -51,7 +51,7 @@ export default function NuseryTable() {
     );
   }
 
-  let average_score = studentData.overall_total_score / 14;
+  let average_score = studentData.overall_total_score / 16;
   let rounded = Number.parseFloat(average_score.toFixed(2));
 
   return (
@@ -117,7 +117,7 @@ export default function NuseryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Class :
                 </span>
-                <span className="flex-1 font-normal px-2">Nursery 2</span>
+                <span className="flex-1 font-normal px-2">Primary 2</span>
               </div>
             </th>
             <th colSpan={4} className=" border border-slate-500">
@@ -125,7 +125,7 @@ export default function NuseryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Term :
                 </span>
-                <span className="flex-1 font-normal px-2">Third</span>
+                <span className="flex-1 font-normal px-2">First</span>
               </div>
             </th>
             <th colSpan={3} className=" border border-slate-500">
@@ -141,7 +141,7 @@ export default function NuseryTable() {
           <tr>
             <th colSpan={6} className=" border border-slate-500">
               <div className="flex items-center">
-                <span className="py-2 w-24 font-semibold border-r border-slate-500 block">
+                <span className="py-5 w-24 font-semibold border-r border-slate-500 block">
                   Closing Date :
                 </span>
                 <span className="flex-1 font-normal px-2">26th July, 2024</span>
@@ -150,7 +150,7 @@ export default function NuseryTable() {
             <th colSpan={7} className="border border-slate-500">
               <div className="flex items-center">
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
-                  Third term begins :
+                  Second term begins :
                 </span>
                 <span className="flex-1 font-normal px-2">
                   9th September, 2024
@@ -160,10 +160,6 @@ export default function NuseryTable() {
           </tr>
         </thead>
         <tbody>
-          <tr className="text-center">
-            <td colSpan={9}>COGNITVE DOMAIN REPORT</td>
-            <td colSpan={4}>AFFECTIVE & PSYCHOMOTOR DOMAIN REPORT</td>
-          </tr>
           <tr>
             <td colSpan={1}>NO</td>
             <td colSpan={2}>SUBJECTS</td>
@@ -197,13 +193,7 @@ export default function NuseryTable() {
             >
               GRADE
             </td>
-            <td
-              colSpan={1}
-              className="[writing-mode:vertical-lr] rotate-180 py-1"
-            >
-              POSITION
-            </td>
-            <td colSpan={3}>PSYCHOMOTOR & AFFECTIVE DOMAN</td>
+            <td colSpan={3}>PSYCHOMOTOR & AFFECTIVE SKILLS</td>
             <td colSpan={1} className="border-r-0">
               GRADING
             </td>
@@ -211,50 +201,47 @@ export default function NuseryTable() {
           <tr>
             <td>1</td>
             <td colSpan={2} className="text-left pl-1">
-              NUMERACY
+              MATHEMATICS
             </td>
             <td>{studentData?.numeracy_ca1}</td>
             <td>{studentData?.numeracy_ca2}</td>
             <td>{studentData?.numeracy_exam}</td>
             <td>{studentData.numeracy_total}</td>
             <td>{studentData.numeracy_grade}</td>
-            <td>89</td>
-            <td className="text-center pl-1" colSpan={4}>
-              ATTITUDE TOWARDS WORK
+            <td className="text-left pl-1" colSpan={3}>
+              Attentiveness
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>2</td>
             <td colSpan={2} className="text-left pl-1">
-              LITERACY
+              ENGLISH LANGUAGE
             </td>
             <td>{studentData?.literacy_ca1}</td>
             <td>{studentData.literacy_ca2}</td>
             <td>{studentData.literacy_exam}</td>
             <td>{studentData.literacy_total}</td>
             <td>{studentData.literacy_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Follow simple directions
+              Creativity
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>3</td>
             <td colSpan={2} className="text-left pl-1">
-              SCIENCE
+              BASIC SCIENCE
             </td>
             <td>{studentData.science_ca1}</td>
             <td>{studentData.science_ca2}</td>
             <td>{studentData.science_exam}</td>
             <td>{studentData.science_total}</td>
             <td>{studentData.science_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Developed an increased concentration
+              Participation in class
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>4</td>
@@ -266,59 +253,55 @@ export default function NuseryTable() {
             <td>{studentData.quantitative_reasoning_exam}</td>
             <td>{studentData.quantitative_reasoning_total}</td>
             <td>{studentData.quantitative_reasoning_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Able to follow routine
+              Leadership traits
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>5</td>
             <td colSpan={2} className="text-left pl-1">
-              PHYSICAL & HEALTH AND SOCIAL SKILL
+              AGRICULTURAL SCIENCE
             </td>
             <td>{studentData.physical_health_social_ca1}</td>
             <td>{studentData.physical_health_social_ca2}</td>
             <td>{studentData.physical_health_social_exam}</td>
             <td>{studentData.physical_health_social_total}</td>
             <td>{studentData.physical_health_social_grade}</td>
-            <td>89</td>
-            <td className="text-center pl-1" colSpan={4}>
-              SOCIAL DEVELOPMENT
+            <td className="text-left pl-1" colSpan={3}>
+              Honesty
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>6</td>
             <td colSpan={2} className="text-left pl-1">
-              JOLLY PHONICS
+              CIVIC EDUCATION
             </td>
             <td>{studentData.jolly_phonics_ca1}</td>
             <td>{studentData.jolly_phonics_ca2}</td>
             <td>{studentData.jolly_phonics_exam}</td>
             <td>{studentData.jolly_phonics_total}</td>
             <td>{studentData.jolly_phonics_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Social and loved by the teachers and
+              Punctuality
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>7</td>
             <td colSpan={2} className="text-left pl-1">
-              UNDERSTANDING THE WORLD
+              COMPUTER STUDIES
             </td>
             <td>{studentData.understanding_the_world_ca1}</td>
             <td>{studentData.understanding_the_world_ca2}</td>
             <td>{studentData.understanding_the_world_exam}</td>
             <td>{studentData.understanding_the_world_total}</td>
             <td>{studentData.understanding_the_world_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Shares materials and toys with others
+              Verbal fluency
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>8</td>
@@ -330,150 +313,167 @@ export default function NuseryTable() {
             <td>{studentData.christian_religious_studies_exam}</td>
             <td>{studentData.christian_religious_studies_total}</td>
             <td>{studentData.christian_religious_studies_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Enjoy the company of others
+              Attitude to work
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>9</td>
             <td colSpan={2} className="text-left pl-1">
-              ART & DESIGN
+              VOCATIONAL STUDIES
             </td>
             <td>{studentData.art_design_ca1}</td>
             <td>{studentData.art_design_ca2}</td>
             <td>{studentData.art_design_exam}</td>
             <td>{studentData.art_design_total}</td>
             <td>{studentData.art_design_grade}</td>
-            <td>89</td>
-            <td className="text-center pl-1" colSpan={4}>
-              OTHER ABILITIES
+            <td className="text-left pl-1" colSpan={3}>
+              Emotional stability
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>10</td>
             <td colSpan={2} className="text-left pl-1">
-              PRACTICAL LIFE/SENSORIAL
+              HOME ECONOMICS
             </td>
             <td>{studentData.practical_life_ca1}</td>
             <td>{studentData.practical_life_ca2}</td>
             <td>{studentData.practical_life_exam}</td>
             <td>{studentData.practical_life_total}</td>
             <td>{studentData.practical_life_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Knows their names
+              Initiative
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>11</td>
             <td colSpan={2} className="text-left pl-1">
-              RHYMES
+              PHYSICAL & HEALTH EDUCATION
             </td>
             <td>{studentData.rhymes_ca1}</td>
             <td>{studentData.rhymes_ca2}</td>
             <td>{studentData.rhymes_exam}</td>
             <td>{studentData.rhymes_total}</td>
             <td>{studentData.rhymes_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Knows their age
+              Neatness
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>12</td>
             <td colSpan={2} className="text-left pl-1">
-              VERBAL REASONING
+              SOCIAL STUDIES
             </td>
             <td>{studentData.verbal_reasoning_ca1}</td>
             <td>{studentData.verbal_reasoning_ca2}</td>
             <td>{studentData.verbal_reasoning_exam}</td>
             <td>{studentData.verbal_reasoning_total}</td>
             <td>{studentData.verbal_reasoning_grade}</td>
-            <td>89</td>
-            <td
-              className="text-left pl-1 border-b border-slate-500"
-              colSpan={3}
-            >
-              knows the name of their school
+            <td className="text-left pl-1" colSpan={3}>
+              Politeness
             </td>
-            <td className="border-b border-slate-500">5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>13</td>
             <td colSpan={2} className="text-left pl-1">
-              HAND WRITING SKILLS
+              VERBAL REASONING
             </td>
             <td>{studentData.handwriting_ca1}</td>
             <td>{studentData.handwriting_ca2}</td>
             <td>{studentData.handwriting_exam}</td>
             <td>{studentData.handwriting_total}</td>
             <td>{studentData.handwriting_grade}</td>
-            <td>89</td>
             <td className="text-left pl-1" colSpan={3}>
-              Relationship with pupils
+              Relationship with teachers
             </td>
-            <td>5</td>
+            <td colSpan={2}>5</td>
           </tr>
           <tr>
             <td>14</td>
             <td colSpan={2} className="text-left pl-1">
-              LITERATURE IN ENGLISH
+              HAND WRITING
             </td>
             <td>{studentData.literacy_ca1}</td>
             <td>{studentData.literacy_ca2}</td>
             <td>{studentData.literacy_exam}</td>
             <td>{studentData.literacy_total}</td>
             <td>{studentData.literacy_grade}</td>
-            <td>89</td>
-            <td className="text-left pl-1" colSpan={3}>
-              Creativity
+            <td
+              className="text-left pl-1 border-b border-slate-500"
+              colSpan={3}
+            >
+              Relationship with pupils
             </td>
-            <td>5</td>
+            <td className="border-b border-slate-500" colSpan={2}>
+              5
+            </td>
           </tr>
           <tr>
-            <td colSpan={3} className="font-extrabold">
+            <td>15</td>
+            <td colSpan={2} className="text-left pl-1">
+              SPEELLING & DICTION
+            </td>
+            <td>{studentData.literacy_ca1}</td>
+            <td>{studentData.literacy_ca2}</td>
+            <td>{studentData.literacy_exam}</td>
+            <td>{studentData.literacy_total}</td>
+            <td>{studentData.literacy_grade}</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td colSpan={2} className="text-left pl-1">
+              IGBO LANAGUAGE
+            </td>
+            <td>{studentData.literacy_ca1}</td>
+            <td>{studentData.literacy_ca2}</td>
+            <td>{studentData.literacy_exam}</td>
+            <td>{studentData.literacy_total}</td>
+            <td>{studentData.literacy_grade}</td>
+          </tr>
+          <tr>
+            <td colSpan={3} className="font-extrabold border-b-0">
               TOTAL
             </td>
-            <td colSpan={6}>{studentData.overall_total_score}</td>
-
-            <td className="text-left pl-1" colSpan={3}>
-              Sports
+            <td colSpan={10} className="border-b-0">
+              {studentData.overall_total_score}
             </td>
-            <td>5</td>
           </tr>
           <tr>
             <td colSpan={9}></td>
             <td className="text-left pl-1" colSpan={3}></td>
             <td></td>
           </tr>
-          <tr>
-            <td colSpan={4} className="text-left pl-1 font-extrabold">
+          <tr className="border-t-0">
+            <td
+              colSpan={4}
+              className="text-left pl-1 font-extrabold border-t-0"
+            >
               TERM AVERAGE
             </td>
-            <td colSpan={2}>{rounded}</td>
-            <td colSpan={6} className="font-extrabold">
+            <td colSpan={2} className="border-t-0">
+              {rounded}
+            </td>
+            <td colSpan={5} className="font-extrabold border-t-0">
               OVERALL GRADING
             </td>
-            <td colSpan={1}>A</td>
+            <td colSpan={2} className="border-t-0">
+              A
+            </td>
           </tr>
           <tr>
             <td colSpan={4} className="text-left pl-1 font-extrabold">
-              Caregiver's Remark
+              Class Teacher's Remark
             </td>
             <td colSpan={9}>An excellent result . You are a star.</td>
-            <td colSpan={4} className="font-extrabold">
-              CUM AVERAGE
-            </td>
-            <td colSpan={1}>90.3</td>
           </tr>
           <tr>
             <td colSpan={4} className="text-left pl-1 font-extrabold">
-              Head Teacher's Comment
+              Head Teacher's Remark
             </td>
             <td colSpan={9}>Promoted to the next class</td>
           </tr>
@@ -492,7 +492,7 @@ export default function NuseryTable() {
         width={200}
         className="relative bottom-16 left-[45%] "
       />
-
+      
       <div className="-mt-32">
         <Grading />
       </div>
