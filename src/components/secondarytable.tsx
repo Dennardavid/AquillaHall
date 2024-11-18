@@ -1,12 +1,10 @@
 "use client";
-import { PrimaryStudentData } from "@/Types/StudentData";
+import { SecStudentData } from "@/Types/StudentData";
 import Grading from "./grading";
 import { useState, useEffect } from "react";
 
-export default function PrimaryTable() {
-  const [studentData, setStudentData] = useState<PrimaryStudentData | null>(
-    null
-  );
+export default function SecondaryTable() {
+  const [studentData, setStudentData] = useState<SecStudentData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -248,13 +246,13 @@ export default function PrimaryTable() {
           <tr>
             <td>4</td>
             <td colSpan={2} className="text-left pl-1">
-              QUANTITATIVE REASONING
+              BUSINESS STUDIES
             </td>
-            <td>{studentData.quantitative_reasoning_ca1}</td>
-            <td>{studentData.quantitative_reasoning_ca2}</td>
-            <td>{studentData.quantitative_reasoning_exam}</td>
-            <td>{studentData.quantitative_reasoning_total}</td>
-            <td>{studentData.quantitative_reasoning_grade}</td>
+            <td>{studentData.business_studies_ca1}</td>
+            <td>{studentData.business_studies_ca2}</td>
+            <td>{studentData.business_studies_exam}</td>
+            <td>{studentData.business_studies_total}</td>
+            <td>{studentData.business_studies_grade}</td>
             <td className="text-left pl-1" colSpan={3}>
               Leadership traits
             </td>
@@ -323,13 +321,13 @@ export default function PrimaryTable() {
           <tr>
             <td>9</td>
             <td colSpan={2} className="text-left pl-1">
-              VOCATIONAL STUDIES
+              BASIC TECHNOLOGY
             </td>
-            <td>{studentData.vocational_studies_ca1}</td>
-            <td>{studentData.vocational_studies_ca2}</td>
-            <td>{studentData.vocational_studies_exam}</td>
-            <td>{studentData.vocational_studies_total}</td>
-            <td>{studentData.vocational_studies_grade}</td>
+            <td>{studentData.basic_technology_ca1}</td>
+            <td>{studentData.basic_technology_ca2}</td>
+            <td>{studentData.basic_technology_exam}</td>
+            <td>{studentData.basic_technology_total}</td>
+            <td>{studentData.basic_technology_grade}</td>
             <td className="text-left pl-1" colSpan={3}>
               Emotional stability
             </td>
@@ -383,13 +381,13 @@ export default function PrimaryTable() {
           <tr>
             <td>13</td>
             <td colSpan={2} className="text-left pl-1">
-              VERBAL REASONING
+              LITERATURE IN ENGLISH
             </td>
-            <td>{studentData.verbal_reasoning_ca1}</td>
-            <td>{studentData.verbal_reasoning_ca2}</td>
-            <td>{studentData.verbal_reasoning_exam}</td>
-            <td>{studentData.verbal_reasoning_total}</td>
-            <td>{studentData.verbal_reasoning_grade}</td>
+            <td>{studentData.literature_in_english_ca1}</td>
+            <td>{studentData.literature_in_english_ca2}</td>
+            <td>{studentData.literature_in_english_exam}</td>
+            <td>{studentData.literature_in_english_total}</td>
+            <td>{studentData.literature_in_english_grade}</td>
             <td className="text-left pl-1" colSpan={3}>
               Relationship with teachers
             </td>
@@ -398,13 +396,13 @@ export default function PrimaryTable() {
           <tr>
             <td>14</td>
             <td colSpan={2} className="text-left pl-1">
-              HAND WRITING
+              DICTION
             </td>
-            <td>{studentData.hand_writing_ca1}</td>
-            <td>{studentData.hand_writing_ca2}</td>
-            <td>{studentData.hand_writing_exam}</td>
-            <td>{studentData.hand_writing_total}</td>
-            <td>{studentData.hand_writing_grade}</td>
+            <td>{studentData.diction_ca1}</td>
+            <td>{studentData.diction_ca2}</td>
+            <td>{studentData.diction_exam}</td>
+            <td>{studentData.diction_total}</td>
+            <td>{studentData.diction_grade}</td>
             <td
               className="text-left pl-1 border-b border-slate-500"
               colSpan={3}
@@ -414,28 +412,6 @@ export default function PrimaryTable() {
             <td className="border-b border-slate-500" colSpan={2}>
               5
             </td>
-          </tr>
-          <tr>
-            <td>15</td>
-            <td colSpan={2} className="text-left pl-1">
-              SPEELLING & DICTION
-            </td>
-            <td>{studentData.spelling_diction_ca1}</td>
-            <td>{studentData.spelling_diction_ca2}</td>
-            <td>{studentData.spelling_diction_exam}</td>
-            <td>{studentData.spelling_diction_total}</td>
-            <td>{studentData.spelling_diction_grade}</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td colSpan={2} className="text-left pl-1">
-              IGBO LANAGUAGE
-            </td>
-            <td>{studentData.igbo_ca1}</td>
-            <td>{studentData.igbo_ca2}</td>
-            <td>{studentData.igbo_exam}</td>
-            <td>{studentData.igbo_total}</td>
-            <td>{studentData.igbo_grade}</td>
           </tr>
           <tr>
             <td colSpan={3} className="font-extrabold border-b-0">
