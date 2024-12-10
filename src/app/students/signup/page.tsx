@@ -58,14 +58,14 @@ function StudentSignUp() {
             />
             <label htmlFor="class">Class</label>
             <select name="class" id="class" required>
-              <option value="Nursery1">Nursery 1</option>
-              <option value="Nursery2">Nursery 2</option>
-              <option value="Nursery3">Nursery 3</option>
-              <option value="Primary1">Primary 1</option>
-              <option value="Primary2">Primary 2</option>
-              <option value="Primary3">Primary 3</option>
-              <option value="Primary4">Primary 4</option>
-              <option value="Primary5">Primary 5</option>
+              <option value="Nursery 1">Nursery 1</option>
+              <option value="Nursery 2">Nursery 2</option>
+              <option value="Nursery 3">Nursery 3</option>
+              <option value="Primary 1">Primary 1</option>
+              <option value="Primary 2">Primary 2</option>
+              <option value="Primary 3">Primary 3</option>
+              <option value="Primary 4">Primary 4</option>
+              <option value="Primary 5">Primary 5</option>
               <option value="JSS1">JSS 1</option>
               <option value="JSS2">JSS 2</option>
               <option value="JSS3">JSS 3</option>

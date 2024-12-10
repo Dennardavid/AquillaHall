@@ -1,20 +1,23 @@
+import { createClient } from "../../utils/supabase/server";
 export default async function StudentDashboard() {
-  const student = {
-    name: "John Doe",
-    gradeLevel: "12",
-    schoolYear: "2023/2024",
-    recentResults: [
-      { course: "Mathematics", grade: 85 },
-      { course: "Physics", grade: 78 },
-      { course: "Chemistry", grade: 92 },
-    ],
-  };
+
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    console.log(error ,"line 10");
+  }else{
+    console.log(data)
+  }
+  const userName: string = data?.user?.user_metadata?.user_name
+  const userClass: string = data?.user?.user_metadata?.class
+
+ 
 
   return (
     <div>
       {/* Welcome Section */}
       <header className="mb-8">
-        <h1 className="text-3xl font-bold">Welcome, {student.name}!</h1>
+        <h1 className="text-3xl font-bold">Welcome, {userName}!</h1>
       </header>
 
       {/* Main Dashboard Grid */}
@@ -23,9 +26,9 @@ export default async function StudentDashboard() {
         <div className="bg-white shadow-lg rounded-lg p-6">
           <div className="flex items-center mb-4">
             <div>
-              <h2 className="text-xl font-bold">{student.name}</h2>
-              <p className="text-gray-500">Grade: {student.gradeLevel}</p>
-              <p className="text-gray-500">Year: {student.schoolYear}</p>
+              <h2 className="text-xl font-bold">{userName}</h2>
+              <p className="text-gray-500">Class: {userClass}</p>
+              <p className="text-gray-500">Year: 2024/2025</p>
             </div>
           </div>
           <button className="w-full text-white bg-blue-500 hover:bg-blue-600 rounded-lg py-2 transition">
