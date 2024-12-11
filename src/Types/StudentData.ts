@@ -241,3 +241,12 @@ export interface SecStudentData {
   overall_total_score: number;
   user_id: string;
 }
+
+export interface Subject {
+  name: string;
+  fields: string[];
+}
+
+export interface Grades {
+  [key: string]: number;
+}

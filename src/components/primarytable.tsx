@@ -1,32 +1,47 @@
 "use client";
 import { PrimaryStudentData } from "@/Types/StudentData";
+import { createClient } from "../utils/supabase/client";
 import Grading from "./grading";
 import { useState, useEffect } from "react";
 
 export default function PrimaryTable() {
+  const supabase = createClient();
+
   const [studentData, setStudentData] = useState<PrimaryStudentData | null>(
     null
   );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [userClass, setUserClass] = useState<string | null>(null);
+  const [userGender, setUserGender] = useState<string | null>(null);
+  const [userAge, setUserAge] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchStudentData = async () => {
+    const fetchUserData = async () => {
       try {
-        const response = await fetch("/auth/getnurseryresult");
+        const { data: userData } = await supabase.auth.getUser();
+        const extractedUserClass = userData?.user?.user_metadata?.class;
+        const extractedUserGender = userData?.user?.user_metadata?.gender;
+        const extractedUserAge = userData?.user?.user_metadata?.age;
+        setUserClass(extractedUserClass);
+        setUserGender(extractedUserGender);
+        setUserAge(extractedUserAge);
+
+        const response = await fetch(`/auth/getprimaryresult`);
         if (!response.ok) {
           throw new Error("Failed to fetch student data");
         }
+
         const data = await response.json();
-        setStudentData(data[0]); // Assuming we're showing one student's record
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
+        setStudentData(data[0]); // Assuming only one record is needed
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
         setLoading(false);
       }
     };
 
-    fetchStudentData();
+    fetchUserData();
   }, []);
 
   if (loading) {
@@ -100,7 +115,7 @@ export default function PrimaryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Gender :
                 </span>
-                <span className="flex-1 font-normal px-2">Male</span>
+                <span className="flex-1 font-normal px-2">{userGender}</span>
               </div>
             </th>
           </tr>
@@ -111,7 +126,7 @@ export default function PrimaryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Age :
                 </span>
-                <span className="flex-1 font-normal px-2">11</span>
+                <span className="flex-1 font-normal px-2">{userAge}</span>
               </div>
             </th>
             <th colSpan={3} className=" border border-slate-500">
@@ -119,7 +134,7 @@ export default function PrimaryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Class :
                 </span>
-                <span className="flex-1 font-normal px-2">Primary 2</span>
+                <span className="flex-1 font-normal px-2">{userClass}</span>
               </div>
             </th>
             <th colSpan={4} className=" border border-slate-500">
@@ -127,7 +142,7 @@ export default function PrimaryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Term :
                 </span>
-                <span className="flex-1 font-normal px-2">First</span>
+                <span className="flex-1 font-normal px-2">Second</span>
               </div>
             </th>
             <th colSpan={3} className=" border border-slate-500">
@@ -135,7 +150,7 @@ export default function PrimaryTable() {
                 <span className="py-2 w-24 font-semibold border-r border-slate-500">
                   Year :
                 </span>
-                <span className="flex-1 font-normal px-2">2023/2024</span>
+                <span className="flex-1 font-normal px-2">2024/2025</span>
               </div>
             </th>
           </tr>
@@ -146,7 +161,7 @@ export default function PrimaryTable() {
                 <span className="py-5 w-24 font-semibold border-r border-slate-500 block">
                   Closing Date :
                 </span>
-                <span className="flex-1 font-normal px-2">26th July, 2024</span>
+                <span className="flex-1 font-normal px-2">14th December, 2024</span>
               </div>
             </th>
             <th colSpan={7} className="border border-slate-500">
@@ -155,7 +170,7 @@ export default function PrimaryTable() {
                   Second term begins :
                 </span>
                 <span className="flex-1 font-normal px-2">
-                  9th September, 2024
+                  9th January, 2025
                 </span>
               </div>
             </th>

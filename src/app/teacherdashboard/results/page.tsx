@@ -1,11 +1,7 @@
 "use client";
-
+import { createClient } from "@/utils/supabase/client";
 import React, { useState } from "react";
-
-interface Subject {
-  name: string;
-  fields: string[];
-}
+import { Subject, Grades } from "@/Types/StudentData";
 
 const subjects: Subject[] = [
   {
@@ -86,11 +82,15 @@ const subjects: Subject[] = [
   },
 ];
 
-interface Grades {
-  [key: string]: number;
-}
+export default async function UploadResults() {
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    console.log(error);
+  }else{
+    console.log(data);
+  }
 
-export default function UploadResults() {
   const [studentName, setStudentName] = useState<string>("");
   const [grades, setGrades] = useState<Grades>({});
   const [isSubmitting, setIsSubmitting] = useState(false);

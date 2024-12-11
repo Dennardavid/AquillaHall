@@ -1,17 +1,13 @@
 import { createClient } from "../../utils/supabase/server";
 export default async function StudentDashboard() {
-
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data?.user) {
-    console.log(error ,"line 10");
-  }else{
-    console.log(data)
+    console.log(error);
   }
-  const userName: string = data?.user?.user_metadata?.user_name
-  const userClass: string = data?.user?.user_metadata?.class
 
- 
+  const userName: string = data?.user?.user_metadata?.user_name;
+  const userClass: string = data?.user?.user_metadata?.class;
 
   return (
     <div>
@@ -60,7 +56,6 @@ export default async function StudentDashboard() {
             </a>
           </div>
         </div>
-        
       </div>
     </div>
   );

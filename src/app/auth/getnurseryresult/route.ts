@@ -19,8 +19,6 @@ export async function GET() {
     .eq("student_name", user?.user_metadata?.user_name)
     .order("created_at", { ascending: false });
 
-  console.log(data);
-
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
