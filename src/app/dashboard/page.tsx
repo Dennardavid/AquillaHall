@@ -1,4 +1,6 @@
 import { createClient } from "../../utils/supabase/server";
+
+
 export default async function StudentDashboard() {
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();

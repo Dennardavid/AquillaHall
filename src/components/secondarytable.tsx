@@ -25,7 +25,7 @@ export default function SecondaryTable() {
         setUserGender(extractedUserGender);
         setUserAge(extractedUserAge);
 
-        const response = await fetch(`/auth/getnurseryresult`);
+        const response = await fetch(`/auth/getsecondaryresult`);
         if (!response.ok) {
           throw new Error("Failed to fetch student data");
         }

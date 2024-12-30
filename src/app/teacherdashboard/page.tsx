@@ -1,11 +1,22 @@
 import Link from "next/link";
+import { createClient } from "../../utils/supabase/server";
 
-export default function DashboardOverview() {
+export default async function DashboardOverview() {
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    console.log(error);
+  }
+
+  const userName: string = data?.user?.user_metadata?.user_name;
+  const classTaught: string = data?.user?.user_metadata?.class_taught;
+
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Teacher's Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6">{userName}'s Dashboard</h1>
+      <h2 className="text-2xl font-bold mb-6">Teaching: {classTaught}</h2>
       <p>
-        Welcome back, teacher! Manage your tasks and students' progress here.
+        Welcome back, {userName}! Manage your tasks and students' progress here.
       </p>
 
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
