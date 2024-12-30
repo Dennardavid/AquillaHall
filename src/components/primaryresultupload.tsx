@@ -27,21 +27,25 @@ const subjects: Subject[] = [
   {
     name: "AGRICULTURAL SCIENCE",
     fields: [
-      "physical_health_social_ca1",
-      "physical_health_social_ca2",
-      "physical_health_social_exam",
+      "agricultural_science_ca1",
+      "agricultural_science_ca2",
+      "agricultural_science_exam",
     ],
   },
   {
     name: "CIVIC EDUCATION",
-    fields: ["jolly_phonics_ca1", "jolly_phonics_ca2", "jolly_phonics_exam"],
+    fields: [
+      "civic_eductaion_ca1",
+      "civic_eductaion_ca2",
+      "civic_eductaion_exam",
+    ],
   },
   {
     name: "COMPUTER STUDIES",
     fields: [
-      "understanding_the_world_ca1",
-      "understanding_the_world_ca2",
-      "understanding_the_world_exam",
+      "computer_studies_ca1",
+      "computer_studies_ca2",
+      "computer_studies_exam",
     ],
   },
   {
@@ -54,18 +58,30 @@ const subjects: Subject[] = [
   },
   {
     name: "VOCATIONAL STUDIES",
-    fields: ["art_design_ca1", "art_design_ca2", "art_design_exam"],
+    fields: [
+      "vocational_studies_ca1",
+      "vocational_studies_ca2",
+      "vocational_studies_exam",
+    ],
   },
   {
     name: "HOME ECONOMICS",
-    fields: ["practical_life_ca1", "practical_life_ca2", "practical_life_exam"],
+    fields: ["home_economics_ca1", "home_economics_ca2", "home_economics_exam"],
   },
   {
     name: "PHYSICAL & HEALTH EDUCATION",
-    fields: ["rhymes_ca1", "rhymes_ca2", "rhymes_exam"],
+    fields: ["phe_ca1", "phe_ca2", "phe_exam"],
   },
   {
     name: "SOCIAL STUDIES",
+    fields: [
+      "social_studies_ca1",
+      "social_studies_ca2",
+      "social_studies_exam",
+    ],
+  },
+  {
+    name: "VERBAL REASONING",
     fields: [
       "verbal_reasoning_ca1",
       "verbal_reasoning_ca2",
@@ -73,20 +89,16 @@ const subjects: Subject[] = [
     ],
   },
   {
-    name: "VERBAL REASONING",
-    fields: ["handwriting_ca1", "handwriting_ca2", "handwriting_exam"],
-  },
-  {
     name: "HAND WRITING",
-    fields: ["literature_ca1", "literature_ca2", "literature_exam"],
+    fields: ["hand_writing_ca1", "hand_writing_ca2", "hand_writing_exam"],
   },
   {
     name: "SPEELLING & DICTION",
-    fields: ["literature_ca1", "literature_ca2", "literature_exam"],
+    fields: ["spelling_diction_ca1", "spelling_diction_ca2", "spelling_diction_exam"],
   },
   {
     name: "IGBO LANAGUAGE",
-    fields: ["literature_ca1", "literature_ca2", "literature_exam"],
+    fields: ["igbo_ca1", "igbo_ca2", "igbo_exam"],
   },
 ];
 
@@ -126,8 +138,10 @@ export default function PrimaryResultsUploadForm() {
 
   const normalizeSubjectName = (name: string): string => {
     const nameMap: { [key: string]: string } = {
-      "Physical Health & Social Skills": "physical_health_social",
-      "Literature in English": "literature",
+      "PHYSICAL & HEALTH EDUCATION": "phe",
+      "IGBO LANAGUAGE": "igbo",
+      "ENGLISH LANGUAGE": "english",
+      "SPEELLING & DICTION": "spelling_diction",
     };
 
     return (
