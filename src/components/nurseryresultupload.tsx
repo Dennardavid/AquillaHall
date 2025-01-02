@@ -82,6 +82,33 @@ const subjects: Subject[] = [
   },
 ];
 
+const affectiveDoman = [
+  {
+    name: "ATTITUDE TOWARDS WORK",
+    fields: [
+      "Follow_simple_directions",
+      "Developed_an_increased_concentration",
+      "Able_to_follow_routine",
+    ],
+  },
+  {
+    name: "SOCIAL DEVELOPMENT",
+    fields: [
+      "	Social_and_loved_by_the_teachers_and",
+      "Shares_materials_and_toys_with_others",
+      "Enjoy_the_company_of_others",
+    ],
+  },
+  {
+    name: "OTHER ABILITIES",
+    fields: [
+      "Knows_their_names",
+      "Knows_their_age",
+      "knows_the_name_of_their_school",
+    ],
+  },
+];
+
 export default function NurseryResultsUploadForm() {
   const supabase = createClient();
   const [studentName, setStudentName] = useState<string>("");
@@ -89,7 +116,6 @@ export default function NurseryResultsUploadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
 
-  
   const calculateSubjectTotal = (subjectFields: string[]) => {
     return subjectFields.reduce(
       (total, field) => total + (grades[field] || 0),
@@ -218,7 +244,7 @@ export default function NurseryResultsUploadForm() {
       </div>
 
       <div className="bg-white shadow-lg p-6 rounded-lg">
-        <h2 className="text-xl font-bold mb-4">Enter Grades</h2>
+        <h2 className="text-xl font-bold mb-4">Enter Subject Grades</h2>
 
         {subjects.map((subject) => (
           <div key={subject.name} className="mb-6">
@@ -268,6 +294,42 @@ export default function NurseryResultsUploadForm() {
           <p className="text-lg font-medium">
             Overall Total: {calculateOverallTotal()}
           </p>
+        </div>
+
+        <div>
+          <h2 className="text-xl font-bold mb-4">
+            Enter Psychomotor & Affective Doma Grades
+          </h2>
+          {affectiveDoman.map((doman) => (
+            <div key={doman.name} className="mb-6">
+              <h3 className="text-lg font-medium mb-3">{doman.name}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {doman.fields.map((field) => (
+                  <div key={field}>
+                    <label
+                      htmlFor={field}
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      {field
+                        .split("_")
+                        .map((word) => word.toUpperCase())
+                        .join(" ")}
+                    </label>
+                    <input
+                      type="number"
+                      id={field}
+                      value={grades[field] || ""}
+                      onChange={(e) => handleGradeChange(field, e.target.value)}
+                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      min="0"
+                      max="5"
+                      required
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
         <button
