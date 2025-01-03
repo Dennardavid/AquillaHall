@@ -1,106 +1,8 @@
 "use client";
 import { createClient } from "@/utils/supabase/client";
 import { useState } from "react";
-import { Subject, Grades } from "@/Types/StudentData";
-
-const subjects: Subject[] = [
-  {
-    name: "MATHEMATICS",
-    fields: ["mathematics_ca1", "mathematics_ca2", "mathematics_exam"],
-  },
-  {
-    name: "ENGLISH LANGUAGE",
-    fields: ["english_ca1", "english_ca2", "english_exam"],
-  },
-  {
-    name: "BASIC SCIENCE",
-    fields: ["basic_science_ca1", "basic_science_ca2", "basic_science_exam"],
-  },
-  {
-    name: "QUANTITATIVE REASONING",
-    fields: [
-      "quantitative_reasoning_ca1",
-      "quantitative_reasoning_ca2",
-      "quantitative_reasoning_exam",
-    ],
-  },
-  {
-    name: "AGRICULTURAL SCIENCE",
-    fields: [
-      "agricultural_science_ca1",
-      "agricultural_science_ca2",
-      "agricultural_science_exam",
-    ],
-  },
-  {
-    name: "CIVIC EDUCATION",
-    fields: [
-      "civic_eductaion_ca1",
-      "civic_eductaion_ca2",
-      "civic_eductaion_exam",
-    ],
-  },
-  {
-    name: "COMPUTER STUDIES",
-    fields: [
-      "computer_studies_ca1",
-      "computer_studies_ca2",
-      "computer_studies_exam",
-    ],
-  },
-  {
-    name: "CHRISTIAN RELIGIOUS STUDIES",
-    fields: [
-      "christian_religious_studies_ca1",
-      "christian_religious_studies_ca2",
-      "christian_religious_studies_exam",
-    ],
-  },
-  {
-    name: "VOCATIONAL STUDIES",
-    fields: [
-      "vocational_studies_ca1",
-      "vocational_studies_ca2",
-      "vocational_studies_exam",
-    ],
-  },
-  {
-    name: "HOME ECONOMICS",
-    fields: ["home_economics_ca1", "home_economics_ca2", "home_economics_exam"],
-  },
-  {
-    name: "PHYSICAL & HEALTH EDUCATION",
-    fields: ["phe_ca1", "phe_ca2", "phe_exam"],
-  },
-  {
-    name: "SOCIAL STUDIES",
-    fields: [
-      "social_studies_ca1",
-      "social_studies_ca2",
-      "social_studies_exam",
-    ],
-  },
-  {
-    name: "VERBAL REASONING",
-    fields: [
-      "verbal_reasoning_ca1",
-      "verbal_reasoning_ca2",
-      "verbal_reasoning_exam",
-    ],
-  },
-  {
-    name: "HAND WRITING",
-    fields: ["hand_writing_ca1", "hand_writing_ca2", "hand_writing_exam"],
-  },
-  {
-    name: "SPEELLING & DICTION",
-    fields: ["spelling_diction_ca1", "spelling_diction_ca2", "spelling_diction_exam"],
-  },
-  {
-    name: "IGBO LANAGUAGE",
-    fields: ["igbo_ca1", "igbo_ca2", "igbo_exam"],
-  },
-];
+import { Grades } from "@/Types/StudentData";
+import { primarySubjects, primaryAffectiveDoman } from "@/Types/Subjects";
 
 export default function PrimaryResultsUploadForm() {
   const supabase = createClient();
@@ -117,7 +19,7 @@ export default function PrimaryResultsUploadForm() {
   };
 
   const calculateOverallTotal = () => {
-    return subjects.reduce((total, subject) => {
+    return primarySubjects.reduce((total, subject) => {
       return total + calculateSubjectTotal(subject.fields);
     }, 0);
   };
@@ -169,7 +71,7 @@ export default function PrimaryResultsUploadForm() {
       }
 
       // Calculate totals and grades for each subject
-      const subjectResults = subjects.reduce((acc, subject) => {
+      const subjectResults = primarySubjects.reduce((acc, subject) => {
         const total = calculateSubjectTotal(subject.fields);
         const subjectName = normalizeSubjectName(subject.name);
         return {
@@ -239,7 +141,7 @@ export default function PrimaryResultsUploadForm() {
       <div className="bg-white shadow-lg p-6 rounded-lg">
         <h2 className="text-xl font-bold mb-4">Enter Grades</h2>
 
-        {subjects.map((subject) => (
+        {primarySubjects.map((subject) => (
           <div key={subject.name} className="mb-6">
             <h3 className="text-lg font-medium mb-3">{subject.name}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -266,6 +168,45 @@ export default function PrimaryResultsUploadForm() {
                   />
                 </div>
               ))}
+
+              <div>
+                <h2 className="text-xl font-bold mb-4">
+                  Enter Psychomotor & Affective Skills Grades
+                </h2>
+                {primaryAffectiveDoman.map((doman) => (
+                  <div key={doman.name} className="mb-6">
+                    <h3 className="text-lg font-medium mb-3">{doman.name}</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {doman.fields.map((field) => (
+                        <div key={field}>
+                          <label
+                            htmlFor={field}
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            {field
+                              .split("_")
+                              .map((word) => word.toUpperCase())
+                              .join(" ")}
+                          </label>
+                          <input
+                            type="number"
+                            id={field}
+                            value={grades[field] || ""}
+                            onChange={(e) =>
+                              handleGradeChange(field, e.target.value)
+                            }
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            min="0"
+                            max="5"
+                            required
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <div className="md:col-span-3">
                 <div className="flex justify-between items-center">
                   <p className="text-sm font-medium text-gray-700">

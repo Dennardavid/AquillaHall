@@ -74,6 +74,15 @@ export interface StudentData {
   literature_grade: string;
   overall_total_score: number;
   user_id: string;
+  Follow_simple_directions: number;
+  Developed_an_increased_concentration: number;
+  Able_to_follow_routine: number;
+  Social_and_loved_by_the_teachers: number;
+  Shares_materials_and_toys_with_others: number;
+  Enjoy_the_company_of_others: number;
+  Knows_their_names: number;
+  Knows_their_age: number;
+  knows_the_name_of_their_school: number;
 }
 
 export interface PrimaryStudentData {
@@ -162,6 +171,19 @@ export interface PrimaryStudentData {
   igbo_grade: string;
   overall_total_score: number;
   user_id: string;
+  Attentiveness: number;
+  Creativity: number;
+  Participation_in_class: number;
+  Leadership_traits: number;
+  Honesty: number;
+  Punctuality: number;
+  Verbal_fluency: number;
+  Emotional_stability: number;
+  Initiative: number;
+  Neatness: number;
+  Politeness: number;
+  Relationship_with_teacher: number;
+  Relationship_with_pupil: number;
 }
 
 export interface SecStudentData {
@@ -240,6 +262,23 @@ export interface SecStudentData {
   diction_grade: string;
   overall_total_score: number;
   user_id: string;
+  Communication: number;
+  Participation_in_activities: number;
+  Leadership_traits_roles: number;
+  Honesty: number;
+  Punctuality: number;
+  Obedience: number;
+  Attitude_to_work: number;
+  Self_control: number;
+  Initiative: number;
+  Neatness: number;
+  Politeness: number;
+  Emotional_stability: number;
+  Relationship_with_teachers: number;
+  Relationship_with_pupils: number;
+  Creativity: number;
+  Sports: number;
+  Games: number;
 }
 
 export interface Subject {
