@@ -127,6 +127,20 @@ export async function POST(request: NextRequest) {
         igbo_total: grades.igbo_total,
         igbo_grade: grades.igbo_grade,
 
+        Attentiveness: grades.Attentiveness,
+        Creativity: grades.Creativity,
+        Participation_in_class: grades.Participation_in_class,
+        Leadership_traits: grades.Leadership_traits,
+        Honesty: grades.Honesty,
+        Punctuality: grades.Punctuality,
+        Verbal_fluency: grades.Verbal_fluency,
+        Emotional_stability: grades.Emotional_stability,
+        Initiative: grades.Initiative,
+        Neatness: grades.Neatness,
+        Politeness: grades.Politeness,
+        Relationship_with_teacher: grades.Relationship_with_teacher,
+        Relationship_with_pupil: grades.Relationship_with_pupil,
+
         // Overall total only (removed overall grade)
         overall_total_score: grades.overall_total_score,
       },

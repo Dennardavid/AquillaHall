@@ -115,6 +115,19 @@ export async function POST(request: NextRequest) {
         literature_total: grades.literature_total,
         literature_grade: grades.literature_grade,
 
+        Follow_simple_directions: grades.Follow_simple_directions,
+        Developed_an_increased_concentration:
+          grades.Developed_an_increased_concentration,
+        Able_to_follow_routine: grades.Able_to_follow_routine,
+        Social_and_loved_by_the_teachers:
+          grades.Social_and_loved_by_the_teachers,
+        Shares_materials_and_toys_with_others:
+          grades.Shares_materials_and_toys_with_others,
+        Enjoy_the_company_of_others: grades.Enjoy_the_company_of_others,
+        Knows_their_names: grades.Knows_their_names,
+        Knows_their_age: grades.Knows_their_age,
+        knows_the_name_of_their_school: grades.knows_the_name_of_their_school,
+
         // Overall total only (removed overall grade)
         overall_total_score: grades.overall_total_score,
       },
